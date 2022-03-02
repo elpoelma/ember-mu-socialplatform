@@ -1,14 +1,15 @@
 {{page-title "Posts"}}
 <h1>Posts</h1>
 
-<div class="uk-grid uk-grid-medium uk-child-width-expand@s uk-text-center uk-margin-large-top">
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">Post</div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">Post</div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">Post</div>
-    </div>
+
+<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-4@l uk-text-center uk-margin-large-top">
+    {{#each @model as |post|}}
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3>{{post.headline}}</h3>
+                <p>{{post.articlebody}}</p>
+                <img src={{post.thumbnailurl}}>
+            </div>
+        </div>
+    {{/each}}
 </div>
