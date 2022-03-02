@@ -65,5 +65,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "uikit": "^3.11.1"
   }
 }

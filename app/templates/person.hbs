@@ -1,0 +1,19 @@
+{{page-title "Person"}}
+<ul>
+    {{#each @model as |person|}}
+        <li>
+            
+        {{person.name}} {{person.age}}
+        <button {{on "click" (fn this.removePerson person)}}>Remove</button>
+        </li>
+    {{/each}}
+</ul>
+<hr>
+<form {{on "submit" this.createPerson}}>
+    <label>Name</label>
+    <Input @value={{this.newName}}/>
+    <label>Age</label>
+    <Input @value={{this.newAge}}/>
+
+    <button type="submit">Create</button>
+</form>
