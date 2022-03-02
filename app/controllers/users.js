@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-export default class PersonController extends Controller {
+export default class UsersController extends Controller {
     @tracked newName = '';
     @tracked newAge = 0;
 
