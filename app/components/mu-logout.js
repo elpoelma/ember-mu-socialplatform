@@ -1,4 +1,4 @@
-import Component from '@glimmer/component';
+import MuLogoutComponent from 'ember-mu-login/components/mu-logout';
 
-export default class MuLogoutComponent extends Component {
+export default class MyMuLogoutComponent extends MuLogoutComponent {
 }

@@ -10,7 +10,7 @@ export default class NewPostComponent extends Component {
 
     @action
     createPost(event){
-        // event.preventDefault();
+        event.preventDefault();
 
         const post = this.store.createRecord('post', {
             headline: this.headline,
@@ -19,6 +19,7 @@ export default class NewPostComponent extends Component {
         post.save();
         this.headline = '';
         this.body = '';
+        UIkit.modal("#modal-example").hide()
         
     }
 }
