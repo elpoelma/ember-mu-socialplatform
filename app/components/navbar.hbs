@@ -12,7 +12,16 @@
          <ul class="uk-navbar-nav">
         <li><a href="#modal-example" uk-toggle>Create New Post</a></li>
         <Posts::New/>
-<li><a href="#">Login/Signup</a></li>
+        
+        <li>
+            {{#if @isAuthenticated}}
+                <MuLogout/>
+            {{else}}
+                <a href="#modal-login" uk-toggle>Log In</a>
+                <Login/>
+            {{/if}}
+        
+        </li>
          </ul>
          
     </div>

@@ -1,4 +1,4 @@
-<Navbar/>
+<Navbar @isAuthenticated={{this.session.isAuthenticated}}/>
 
 <div class="uk-container">
     {{outlet}}
