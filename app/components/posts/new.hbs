@@ -6,8 +6,13 @@
     <div class="uk-margin">
         <Textarea class="uk-textarea" rows="5" placeholder="Textarea" @value={{this.body}} />
     </div>
+     <div uk-form-custom class="uk-margin">
+        <FileUpload @onFileSelect={{this.setPostImage}}/>
+        <button class="uk-button uk-button-default" type="button">Select Image</button>
+
+    </div>
     <div class="uk-margin">
-        <Input type="text" class="uk-input" @value={{this.thumbnailurl}} placeholder="Image url" />
+        <img src={{this.imagePreviewURL}}/>
     </div>
     <p class="uk-text-right">
         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
