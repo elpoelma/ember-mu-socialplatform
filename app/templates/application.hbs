@@ -1,7 +1,4 @@
 <Navbar @isAuthenticated={{this.session.isAuthenticated}}/>
-{{#if this.session.isAuthenticated}}
-{{this.currentUser.name}}
-{{/if}}
 <div class="uk-container">
     {{outlet}}
 </div>

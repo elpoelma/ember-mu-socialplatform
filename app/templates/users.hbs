@@ -1,14 +1,13 @@
 {{page-title "Users"}}
 <h1>Users</h1>
 
-<div class="uk-grid uk-grid-medium uk-child-width-expand@s uk-text-center uk-margin-large-top">
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">User</div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">User</div>
-    </div>
-    <div>
-        <div class="uk-card uk-card-default uk-card-body">User</div>
-    </div>
+<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-4@l uk-text-center uk-margin-large-top">
+    {{#each @model as |user|}}
+        <div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3>{{user.name}}</h3>
+                <h4>Nickname: {{user.account.nickname}}</h4>
+            </div>
+        </div>
+    {{/each}}
 </div>
