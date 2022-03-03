@@ -41,6 +41,6 @@ export default class MuRegistrationComponent extends Component {
         } else {
             throw result;
         }
-        UIkit.modal("#modal-register").hide();
+        UIkit.modal("#modal-authentication").hide();
     }
 }

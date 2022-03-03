@@ -23,9 +23,9 @@
             </div>
                
             {{else}}
-                <a href="#modal-register" uk-toggle>Log In</a>
-                <Modal @modal-id="modal-register" @modal-title="Register">
-                    <Authentication::MuRegistration/>
+                <a href="#modal-authentication" uk-toggle>Log In/Sign Up</a>
+                <Modal @modal-id="modal-authentication" @modal-title="Authentication">
+                    <Authentication::AuthenticationView/>
                 </Modal>
                 
             {{/if}}

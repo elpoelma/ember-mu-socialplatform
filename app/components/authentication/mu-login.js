@@ -9,7 +9,7 @@ export default class MyMuLoginComponent extends MuLoginComponent {
   async login(e) {
     super.login(e);
 
-    UIkit.modal("#modal-login").hide();
+    UIkit.modal("#modal-authentication").hide();
   }
 
   
