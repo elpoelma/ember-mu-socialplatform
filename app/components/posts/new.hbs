@@ -1,19 +1,16 @@
-<div id="modal-example" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Create new post</h2>
-        <form {{on "submit" this.createPost}}>
-            <div class="uk-margin">
-                <Input type="text" class="uk-input" @value={{this.headline}} placeholder="Post title"/>
-            </div>
-            
-            <div class="uk-margin">
-                <Textarea class="uk-textarea" rows="5" placeholder="Textarea" @value={{this.body}}/>
-            </div>
-            <p class="uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button uk-button-primary" type="submit">Save</button>
-        </p>
-        </form>
-        
+<form {{on "submit" this.createPost}}>
+    <div class="uk-margin">
+        <Input type="text" class="uk-input" @value={{this.headline}} placeholder="Post title" />
     </div>
-</div>
+
+    <div class="uk-margin">
+        <Textarea class="uk-textarea" rows="5" placeholder="Textarea" @value={{this.body}} />
+    </div>
+    <div class="uk-margin">
+        <Input type="text" class="uk-input" @value={{this.thumbnailurl}} placeholder="Image url" />
+    </div>
+    <p class="uk-text-right">
+        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+        <button class="uk-button uk-button-primary" type="submit">Save</button>
+    </p>
+</form>

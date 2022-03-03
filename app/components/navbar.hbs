@@ -16,12 +16,12 @@
         <li>
             {{#if @isAuthenticated}}
             <div class="uk-navbar-item">
-                <MuLogout/>
+                <Authentication::MuLogout/>
             </div>
                
             {{else}}
-                <a href="#modal-login" uk-toggle>Log In</a>
-                <MuLogin/>
+                <a href="#modal-register" uk-toggle>Log In</a>
+                <Authentication::MuRegistration/>
             {{/if}}
         
         </li>

@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 export default class NewPostComponent extends Component {
     @tracked headline;
     @tracked body;
+    @tracked thumbnailurl;
     @service store;
 
     @action
@@ -14,11 +15,13 @@ export default class NewPostComponent extends Component {
 
         const post = this.store.createRecord('post', {
             headline: this.headline,
-            articlebody: this.body
+            articlebody: this.body,
+            thumbnailurl: this.thumbnailurl
         });
         post.save();
         this.headline = '';
         this.body = '';
+        this.thumbnailurl = '';
         UIkit.modal("#modal-example").hide()
         
     }

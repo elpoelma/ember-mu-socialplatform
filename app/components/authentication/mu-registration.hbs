@@ -1,0 +1,21 @@
+<form {{on "submit" this.register}}>
+    <div class="uk-margin">
+        <label for="mu-login-name">Name</label>
+        <Input @id="mu-login-name" class="uk-input" @value={{this.name}} placeholder={{@placeholder}} />
+    </div>
+    <div class="uk-margin">
+        <label for="mu-login-username">Username</label>
+        <Input @id="mu-login-username" class="uk-input" @value={{this.nickname}} placeholder={{@placeholder}} />
+    </div>
+    <div class="uk-margin">
+        <label for="mu-login-password">Password</label>
+        <Input @id="mu-login-password" class="uk-input" @value={{this.password}} type="password" />
+    </div>
+    <div class="uk-margin">
+        <label for="mu-login-passwordConfirm">Password Confirmation</label>
+        <Input @id="mu-login-passwordConfirm" class="uk-input" @value={{this.passwordConfirm}} type="password" />
+    </div>
+    <button class="uk-button uk-button-primary" type="submit">
+        Register
+    </button>
+</form>
