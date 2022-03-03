@@ -11,7 +11,10 @@
     <div class="uk-navbar-right">
          <ul class="uk-navbar-nav">
         <li><a href="#modal-example" uk-toggle>Create New Post</a></li>
-        <Posts::New/>
+        <Modal @modal-id="modal-example" @modal-title="Create new post">
+            <Posts::New/>
+        </Modal>
+        
         
         <li>
             {{#if @isAuthenticated}}
@@ -21,7 +24,10 @@
                
             {{else}}
                 <a href="#modal-register" uk-toggle>Log In</a>
-                <Authentication::MuRegistration/>
+                <Modal @modal-id="modal-register" @modal-title="Register">
+                    <Authentication::MuRegistration/>
+                </Modal>
+                
             {{/if}}
         
         </li>
