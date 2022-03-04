@@ -1,16 +1,23 @@
 {{page-title "MyProfile"}}
 {{#if this.session.isAuthenticated}}
-<p>{{this.account.userAccount.owner.name}}</p>
-<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-2@l uk-margin-large-top">
-    {{#each this.account.userAccount.posts as |post|}}
-    
-    <div>
-        <Post @post={{post}}/>
+<div uk-grid>
+<div class="uk-width-1-5@l">
+<ProfileCard @account={{this.account.userAccount}} class="uk-sticky" uk-sticky="offset: 50" style/>
+</div>
+<div class="uk-width-4-5@l">
+    <div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-1@l">
+        {{#each this.account.userAccount.posts as |post|}}
+        
+        <div>
+            <Post @post={{post}}/>
+
+        </div>
+
+        {{/each}}
+
 
     </div>
-
-    {{/each}}
-
-
 </div>
+</div>
+
 {{/if}}
