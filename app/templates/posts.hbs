@@ -2,14 +2,38 @@
 <h1>Posts</h1>
 
 
-<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-4@l uk-text-center uk-margin-large-top">
+<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-2@l uk-margin-large-top">
     {{#each @model as |post|}}
+    <div>
+
         <div>
-            <div class="uk-card uk-card-default uk-card-body">
-                <h3>{{post.headline}}</h3>
-                <p>{{post.articlebody}}</p>
-                <img src={{post.thumbnailurl}}>
+            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                <div class="uk-card-media-left uk-cover-container">
+                    <img src={{post.thumbnailurl}} alt="" uk-cover>
+                    <canvas width="600" height="400"></canvas>
+                </div>
+                <div>
+                    <div class="uk-card-body">
+                        <time datetime={{post.datecreated}}>{{post.dateString}}</time>
+                        <h3 class="uk-card-title">{{post.headline}}</h3>
+                        <p>{{post.articlebody}}
+                        </p>
+                    </div>
+                    <div class="uk-card-footer">
+                        <div class="uk-align-right">
+                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                            <button {{on "click" (fn this.removePost post)}} class="uk-button uk-button-text">Delete Post</button>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
+
+    </div>
+
     {{/each}}
+
+
 </div>

@@ -15,7 +15,7 @@ export default class NewPostComponent extends Component {
     @action
     async createPost(event){
         event.preventDefault();
-        let imageUrl = null;
+        let imageUrl;
         if(this.image){
             let data = new FormData()
             data.append('file', this.image)
