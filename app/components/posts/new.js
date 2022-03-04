@@ -11,6 +11,8 @@ export default class NewPostComponent extends Component {
     @tracked image;
     @tracked imagePreviewURL;
     @service store;
+    @service session;
+    @service account;
 
     @action
     async createPost(event){
@@ -35,13 +37,17 @@ export default class NewPostComponent extends Component {
                 throw new Error(response);
             }
         }
-
-        
+        let author;
+        if(this.session.isAuthenticated){
+            author = this.account.userAccount;
+        }
+        console.log(author);
 
         const post = this.store.createRecord('post', {
             headline: this.headline,
             articlebody: this.body,
-            thumbnailurl: imageUrl
+            thumbnailurl: imageUrl,
+            author: author
         });
         post.save();
         this.headline = '';

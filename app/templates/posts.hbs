@@ -4,6 +4,7 @@
 
 <div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-2@l uk-margin-large-top">
     {{#each @model as |post|}}
+    
     <div>
 
         <div>
@@ -14,6 +15,9 @@
                 </div>
                 <div>
                     <div class="uk-card-body">
+                        {{#if post.author}}
+                        <p>{{post.author.nickname}}</p>
+                        {{/if}}
                         <time datetime={{post.datecreated}}>{{post.dateString}}</time>
                         <h3 class="uk-card-title">{{post.headline}}</h3>
                         <p>{{post.articlebody}}

@@ -1,0 +1,4 @@
+{{page-title "MyProfile"}}
+{{#if this.session.isAuthenticated}}
+<p>{{this.account.userAccount.owner.name}}</p>
+{{/if}}
