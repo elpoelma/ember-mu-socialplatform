@@ -1,4 +1,16 @@
 {{page-title "MyProfile"}}
 {{#if this.session.isAuthenticated}}
 <p>{{this.account.userAccount.owner.name}}</p>
+<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-2@l uk-margin-large-top">
+    {{#each this.account.userAccount.posts as |post|}}
+    
+    <div>
+        <Post @post={{post}}/>
+
+    </div>
+
+    {{/each}}
+
+
+</div>
 {{/if}}

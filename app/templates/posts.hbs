@@ -6,34 +6,7 @@
     {{#each @model as |post|}}
     
     <div>
-
-        <div>
-            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                <div class="uk-card-media-left uk-cover-container">
-                    <img src={{post.thumbnailurl}} alt="" uk-cover>
-                    <canvas width="600" height="400"></canvas>
-                </div>
-                <div>
-                    <div class="uk-card-body">
-                        {{#if post.author}}
-                        <p>{{post.author.nickname}}</p>
-                        {{/if}}
-                        <time datetime={{post.datecreated}}>{{post.dateString}}</time>
-                        <h3 class="uk-card-title">{{post.headline}}</h3>
-                        <p>{{post.articlebody}}
-                        </p>
-                    </div>
-                    <div class="uk-card-footer">
-                        <div class="uk-align-right">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
-                            <button {{on "click" (fn this.removePost post)}} class="uk-button uk-button-text">Delete Post</button>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        <Post @post={{post}}/>
 
     </div>
 
