@@ -17,7 +17,7 @@
                     <div class="uk-card-footer">
                         <div class="uk-align-right">
                             <a href="#" class="uk-button uk-button-text">Read more</a>
-                            <button class="uk-button uk-button-text">Delete Post</button>
+                            <button class="uk-button uk-button-text" {{on "click" (fn this.removePost @post)}}>Delete Post</button>
                         </div>
 
                     </div>

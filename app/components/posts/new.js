@@ -41,7 +41,6 @@ export default class NewPostComponent extends Component {
         if(this.session.isAuthenticated){
             author = this.account.userAccount;
         }
-        console.log(author);
 
         const post = this.store.createRecord('post', {
             headline: this.headline,
