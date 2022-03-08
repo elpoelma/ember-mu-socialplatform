@@ -5,9 +5,11 @@ import { inject as service } from '@ember/service';
 export default class PostComponent extends Component {
 
     @service store;
+    @service account;
+    @service session;
     @action
-    removePost(post, event){
+    async removePost(post, event){
         event.preventDefault();
-        post.destroyRecord();
+        await post.destroyRecord();
     }
 }

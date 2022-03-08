@@ -17,7 +17,12 @@
                     <div class="uk-card-footer">
                         <div class="uk-align-right">
                             <a href="#" class="uk-button uk-button-text">Read more</a>
-                            <button class="uk-button uk-button-text" {{on "click" (fn this.removePost @post)}}>Delete Post</button>
+                            {{#if this.session.isAuthenticated}}
+                            
+                                {{#if (eq @post.author.nickname this.account.userAccount.nickname) }}
+                                <button class="uk-button uk-button-text" {{on "click" (fn this.removePost @post)}}>Delete Post</button>
+                                {{/if}}
+                            {{/if}}
                         </div>
 
                     </div>

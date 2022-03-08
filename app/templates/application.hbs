@@ -1,4 +1,4 @@
-<Navbar @isAuthenticated={{this.session.isAuthenticated}} @nickname={{this.account.userAccount.nickname}}/>
+<Navbar @isAuthenticated={{this.session.isAuthenticated}} @nickname={{this.account.userAccount.formattedNickname}}/>
 <div class="uk-container">
     <div class="uk-margin-large-top">
         {{outlet}}
