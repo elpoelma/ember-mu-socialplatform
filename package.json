@@ -51,6 +51,7 @@
     "ember-source": "~3.24.0",
     "ember-template-lint": "^2.15.0",
     "ember-truth-helpers": "^3.0.0",
+    "ember-websockets": "^7.2.0",
     "ember-welcome-page": "^4.0.0",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
@@ -70,6 +71,8 @@
     "edition": "octane"
   },
   "dependencies": {
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
     "uikit": "^3.11.1"
   }
 }
