@@ -6,24 +6,24 @@ import uikit from 'uikit';
 export default class ApplicationController extends Controller {
   @service session;
   @service account;
+  @service('websockets') websockets;
 
   constructor(){
     super(...arguments);
 
-    const socket = io('http://localhost:3002');
-
-    // const socket = this.socketIOService.socketFor('http://localhost:3002');
+    const socket = this.websockets.socketFor('ws://localhost:3002/')
 
 
-    socket.on('new post', this.newPostHandler);
+
+    socket.on('message', this.newPostHandler, this);
   }
 
-  newPostHandler(post){
+  newPostHandler(event){
+    let post = JSON.parse(event.data);
     UIkit.notification({
       message: `${post.headline}\n${post.body}`,
       timeout: 5000
     });
-    console.log(post);
   }
 
 }
