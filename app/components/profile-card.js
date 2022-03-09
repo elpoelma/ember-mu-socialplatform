@@ -18,4 +18,19 @@ export default class ProfileCardComponent extends Component {
             loggedInPerson.save();
         }
     }
+
+    @action
+    async unfollow(person, event){
+        event.preventDefault();
+        if(this.session.isAuthenticated && this.account.userAccount){
+            let loggedInPerson = await this.account.userAccount.owner;
+            let following = await loggedInPerson.follows;
+            following.removeObject(await person);
+            loggedInPerson.save();
+        }
+    }
+
+    
+
+
 }
