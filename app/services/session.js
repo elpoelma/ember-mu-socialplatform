@@ -8,7 +8,6 @@ export default class SessionService extends BaseSessionService {
         super.handleAuthentication(...arguments);
         try {
             await this.account.load();
-            console.log(this.account.userAccount.nickname)
         } catch(err) {
             await this.session.invalidate();
         }
