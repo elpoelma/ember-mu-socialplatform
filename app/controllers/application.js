@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { io } from "socket.io-client";
+import uikit from 'uikit';
 
 export default class ApplicationController extends Controller {
   @service session;
@@ -14,12 +15,15 @@ export default class ApplicationController extends Controller {
     // const socket = this.socketIOService.socketFor('http://localhost:3002');
 
 
-    socket.on('new post', () => {
-      console.log('New post!')
-    });
+    socket.on('new post', this.newPostHandler);
   }
 
-  newPostHandler(event){
-    console.log(event.data);
+  newPostHandler(post){
+    UIkit.notification({
+      message: `${post.headline}\n${post.body}`,
+      timeout: 5000
+    });
+    console.log(post);
   }
+
 }
