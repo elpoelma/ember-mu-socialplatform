@@ -6,9 +6,11 @@
     {{#each @model as |post|}}
     
     <div>
-        {{#if @post}}
+        
+        {{!-- {{#if @post}} --}}
+        
         <Post @post={{post}}/>
-        {{/if}}
+        {{!-- {{/if}} --}}
     </div>
 
     {{/each}}
