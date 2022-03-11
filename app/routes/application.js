@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 export default class ApplicationRoute extends Route {
     @service session;
     @service account;
-
+    @service store;
     beforeModel() {
         return this._loadLoggedInAccount();
     }

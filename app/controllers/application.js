@@ -6,6 +6,7 @@ import uikit from 'uikit';
 export default class ApplicationController extends Controller {
   @service session;
   @service account;
+  
   @service('websockets') websockets;
 
   constructor(){
@@ -24,6 +25,7 @@ export default class ApplicationController extends Controller {
       message: `${post.headline}\n${post.body}`,
       timeout: 5000
     });
+
   }
 
 }
