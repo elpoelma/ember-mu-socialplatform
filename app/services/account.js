@@ -8,8 +8,9 @@ export default class AccountService extends Service {
     
     async load(){
         let accountId = this.session.data.authenticated.relationships.account.data.id;
-        console.log(accountId)
+
         if(accountId){
+            
             let account = await this.store.findRecord('account', accountId, {
                 include: 'owner'
             });

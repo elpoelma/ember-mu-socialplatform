@@ -7,17 +7,17 @@ export default class PostsRoute extends Route {
     async model(){
         let result = Ember.A();
         if(this.session.isAuthenticated && this.account.userAccount){
-            let following = await this.account.userAccount.owner.get('follows');
-            let accounts = await Promise.all(following.getEach('account'));
-            let postsList = await Promise.all(accounts.getEach('posts'))
-            postsList.forEach(posts => {
-                result.pushObjects(posts.toArray())
+            let owner = await this.account.userAccount.owner;
+
+           let person = await this.store.findRecord('person', owner.id, {
+                include: "follows,follows.account,follows.account.posts"
             })
-            console.log(result);
-            // return this.store.findAll('post');
+            person.follows.forEach(async following => {
+                let posts = await following.account.get("posts");
+                result.pushObjects(posts.toArray());
+            })
         } else {
             result = this.store.findAll('post');
-            console.log(result);
         }
 
         return result;
