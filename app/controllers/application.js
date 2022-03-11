@@ -11,7 +11,7 @@ export default class ApplicationController extends Controller {
   constructor(){
     super(...arguments);
 
-    const socket = this.websockets.socketFor('ws://localhost:3002/')
+    const socket = this.websockets.socketFor('ws://localhost:3002')
 
 
 

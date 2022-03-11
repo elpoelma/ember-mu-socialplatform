@@ -4,11 +4,13 @@
         <h3 class="uk-card-title">{{@account.owner.name}}</h3>
         <h5>{{@account.formattedNickname}}</h5>
         <div class="uk-card-footer">
+            {{#if this.session.isAuthenticated}}
             {{#if (not-eq this.account.userAccount.id @account.id)}}
             {{#if (contains this.account.userAccount.owner.follows @account.owner.id)}}
             <button class="uk-button uk-button-text" {{on "click" (fn this.unfollow @account.owner)}}>Unfollow</button>
             {{else}}
             <button class="uk-button uk-button-text" {{on "click" (fn this.follow @account.owner)}}>Follow</button>
+            {{/if}}
             {{/if}}
             {{/if}}
         </div>
