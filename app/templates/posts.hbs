@@ -1,19 +1,22 @@
 {{page-title "Posts"}}
 <h1>Posts</h1>
 
+{{#if this.session.isAuthenticated}}
+    <Feed @person={{@model}}/>
+{{else}}
+
 
 <div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-2@l uk-margin-large-top">
     {{#each @model as |post|}}
     
     <div>
         
-        {{!-- {{#if @post}} --}}
         
         <Post @post={{post}}/>
-        {{!-- {{/if}} --}}
     </div>
 
     {{/each}}
 
 
 </div>
+{{/if}}

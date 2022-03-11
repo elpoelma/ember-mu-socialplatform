@@ -1,0 +1,13 @@
+<div uk-grid="masonry: true" class="uk-grid uk-grid-medium uk-child-width-1-2@l uk-margin-large-top">
+    {{#each @person.follows as |followed|}}
+    {{#each followed.account.posts as |post|}}
+    <div>        
+        <Post @post={{post}}/>
+    </div>
+
+    {{/each}}
+
+    {{/each}}
+
+
+</div>
