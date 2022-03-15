@@ -4,13 +4,11 @@ import { inject as service } from '@ember/service';
 
 export default class MyMuLoginComponent extends MuLoginComponent {
   @service session;
-  
+
   @action
   async login(e) {
     super.login(e);
 
-    UIkit.modal("#modal-authentication").hide();
+    UIkit.modal('#modal-authentication').hide();
   }
-
-  
 }

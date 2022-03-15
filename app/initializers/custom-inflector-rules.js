@@ -5,10 +5,10 @@ export function initialize(/* application */) {
 
   const inflector = Inflector.inflector;
 
-  inflector.irregular('person', 'people')
+  inflector.irregular('person', 'people');
 }
 
 export default {
   name: 'custom-inflector-rules',
-  initialize
+  initialize,
 };

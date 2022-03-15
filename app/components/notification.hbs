@@ -1,0 +1,7 @@
+<div class="uk-card uk-card-default uk-card-body uk-width-1-3@m uk-position-top-center uk-margin-top uk-position-fixed" >
+    <h4 class="uk-card-title">{{@content.post.headline}}</h4>
+    <p>Posted by: {{@content.post.author.formattedNickname}}</p>
+    <div class="uk-card-footer">
+        <LinkTo @route="post" @model={{@content.post.id}}>Read More</LinkTo>
+    </div>
+</div>

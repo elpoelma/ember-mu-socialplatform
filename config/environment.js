@@ -22,8 +22,8 @@ module.exports = function (environment) {
       // when it is created
     },
     'ember-websockets': {
-      socketIO: true
-    }
+      socketIO: true,
+    },
   };
 
   if (environment === 'development') {

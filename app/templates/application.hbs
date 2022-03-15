@@ -1,6 +1,12 @@
 <Navbar @isAuthenticated={{this.session.isAuthenticated}} @nickname={{this.account.userAccount.formattedNickname}}/>
+
 <div class="uk-container">
     <div class="uk-margin-large-top">
         {{outlet}}
     </div>
 </div>
+{{#each this.flashMessages.queue as |flash|}}
+  <FlashMessage @flash={{flash}} as |component flash|>
+    <Notification @content={{flash.content}}/>
+  </FlashMessage>
+{{/each}}

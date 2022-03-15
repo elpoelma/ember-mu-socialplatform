@@ -7,9 +7,9 @@
             {{#if this.session.isAuthenticated}}
             {{#if (not-eq this.account.userAccount.id @account.id)}}
             {{#if (contains this.account.userAccount.owner.follows @account.owner.id)}}
-            <button class="uk-button uk-button-text" {{on "click" (fn this.unfollow @account.owner)}}>Unfollow</button>
+            <button class="uk-button uk-button-text" type="button" {{on "click" (fn this.unfollow @account.owner)}}>Unfollow</button>
             {{else}}
-            <button class="uk-button uk-button-text" {{on "click" (fn this.follow @account.owner)}}>Follow</button>
+            <button class="uk-button uk-button-text" type="button" {{on "click" (fn this.follow @account.owner)}}>Follow</button>
             {{/if}}
             {{/if}}
             {{/if}}
