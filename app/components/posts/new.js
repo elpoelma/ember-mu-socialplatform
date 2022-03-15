@@ -17,7 +17,8 @@ export default class NewPostComponent extends Component {
     @action
     async createPost(event){
         event.preventDefault();
-        let imageUrl;
+        let imageurl;
+        let thumbnailurl;
         if(this.image){
             let data = new FormData()
             data.append('file', this.image)
@@ -31,7 +32,9 @@ export default class NewPostComponent extends Component {
             );
             if(response.ok){
                 let image = await response.json();
-                imageUrl = `${image.links.self}/download`;
+                console.log(image);
+                imageurl = `/images/${image.data.id}`;
+                thumbnailurl = `/images/${image.data.id}?height=200&width=300`
             } else {
                 console.log(response);
                 throw new Error(response);
@@ -45,7 +48,8 @@ export default class NewPostComponent extends Component {
         const post = this.store.createRecord('post', {
             headline: this.headline,
             articlebody: this.body,
-            thumbnailurl: imageUrl,
+            thumbnailurl: thumbnailurl,
+            image: imageurl,
             author: author
         });
         post.save();

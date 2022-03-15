@@ -9,6 +9,7 @@ export default class ApplicationController extends Controller {
   @service store;
 
   @service('websockets') websockets;
+  @service flashMessages;
 
   constructor(){
     super(...arguments);
@@ -17,12 +18,16 @@ export default class ApplicationController extends Controller {
     socket.on('message', this.newPostHandler, this);
   }
 
-  newPostHandler(event){
-    let post = JSON.parse(event.data);
-    UIkit.notification({
-      message: `${post.headline}\n${post.body}`,
-      timeout: 5000
-    });
+  async newPostHandler(event){
+    let response = JSON.parse(event.data);
+
+    let post = await this.store.findRecord('post', response.uuid);
+    let author = await post.author;
+    // UIkit.notification({
+    //   message: `${author.formattedNickname}`,
+    //   timeout: 5000
+    // });
+    this.flashMessages.success('Notification!')
     this.store.findAll('post');
 
   }

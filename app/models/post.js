@@ -1,10 +1,11 @@
 import Model, { attr, belongsTo  } from '@ember-data/model';
 
 export default class PostModel extends Model {
-  
+
   @attr('string') headline;
   @attr('string') articlebody;
   @attr('string') thumbnailurl;
+  @attr('string') image;
   @belongsTo('account') author;
   @attr('date', {
     defaultValue() { return new Date(); }
