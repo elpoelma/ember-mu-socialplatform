@@ -13,7 +13,6 @@ export default class ApplicationRoute extends Route {
         
         try {
             await this.account.load();
-            console.log(this.account.userAccount.nickname)
         } catch(err) {
             await this.session.invalidate();
         }

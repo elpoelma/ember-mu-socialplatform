@@ -6,6 +6,7 @@ export default class PostsController extends Controller {
 
     @service store;
     @service session;
+    
     @action
     removePost(post, event){
         event.preventDefault();

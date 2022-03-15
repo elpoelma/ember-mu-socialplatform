@@ -58,7 +58,6 @@ export default class NewPostComponent extends Component {
 
     @action
     setPostImage(event){
-        console.log("filechange")
         event.preventDefault();
         if(event.target.files){
             let file = event.target.files[0];
