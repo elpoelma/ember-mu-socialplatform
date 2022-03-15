@@ -10,7 +10,6 @@ export default class AccountService extends Service {
         let accountId = this.session.data.authenticated.relationships.account.data.id;
 
         if(accountId){
-            
             let account = await this.store.findRecord('account', accountId, {
                 include: 'owner'
             });

@@ -10,4 +10,5 @@ Router.map(function () {
   this.route('posts');
   this.route('users');
   this.route('my-profile');
+  this.route('post', {path: '/posts/:post_id'});
 });

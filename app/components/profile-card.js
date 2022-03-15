@@ -7,6 +7,7 @@ export default class ProfileCardComponent extends Component {
     @service store;
     @service account;
     @service session;
+    
     @action
     async follow(person, event){
         event.preventDefault();

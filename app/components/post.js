@@ -7,6 +7,7 @@ export default class PostComponent extends Component {
     @service store;
     @service account;
     @service session;
+    
     @action
     async removePost(post, event){
         event.preventDefault();

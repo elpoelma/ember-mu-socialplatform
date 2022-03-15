@@ -7,16 +7,14 @@
                 <div>
                     <div class="uk-card-body">
                         {{#if @post.author}}
-                        <p>{{@post.author.nickname}}</p>
+                        <p>{{@post.author.formattedNickname}}</p>
                         {{/if}}
                         <time datetime={{@post.datecreated}}>{{@post.dateString}}</time>
                         <h3 class="uk-card-title">{{@post.headline}}</h3>
-                        <p>{{@post.articlebody}}
-                        </p>
                     </div>
                     <div class="uk-card-footer">
                         <div class="uk-align-right">
-                            <a href="#" class="uk-button uk-button-text">Read more</a>
+                            <LinkTo @route="post" @model={{@post}} class="uk-button uk-button-text">Read more</LinkTo>
                             {{#if this.session.isAuthenticated}}
                             
                                 {{#if (eq @post.author.nickname this.account.userAccount.nickname) }}
