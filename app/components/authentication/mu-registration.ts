@@ -4,7 +4,12 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import SessionService from 'frontend/services/session';
 
-export default class MuRegistrationComponent extends Component {
+interface MuRegistrationArgs {
+  forbiddenMessage: string;
+  failureMessage: string;
+}
+
+export default class MuRegistrationComponent extends Component<MuRegistrationArgs> {
   @service
   session!: SessionService;
   @tracked

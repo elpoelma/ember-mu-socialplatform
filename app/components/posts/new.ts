@@ -2,15 +2,19 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import fetch from 'fetch';
 
 export default class NewPostComponent extends Component {
-  @tracked headline: string;
-  @tracked body: string;
+  @tracked
+  headline!: string;
+  @tracked
+  body!: string;
   @tracked thumbnailurl: any;
-  @tracked image: string | Blob;
-  @tracked imagePreviewURL: string | ArrayBuffer | null;
-  @service store: {
+  @tracked
+  image!: string | Blob;
+  @tracked
+  imagePreviewURL!: string | ArrayBuffer | null;
+  @service
+  store!: {
     createRecord: (
       arg0: string,
       arg1: {
@@ -22,8 +26,10 @@ export default class NewPostComponent extends Component {
       }
     ) => any;
   };
-  @service session: { isAuthenticated: any };
-  @service account: { userAccount: any };
+  @service
+  session!: { isAuthenticated: any };
+  @service
+  account!: { userAccount: any };
 
   @action
   async createPost(event: { preventDefault: () => void }) {
@@ -33,7 +39,7 @@ export default class NewPostComponent extends Component {
     if (this.image) {
       let data = new FormData();
       data.append('file', this.image);
-      const response = await fetch('/files', {
+      const response: Response = await fetch('/files', {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'multipart/form-data',
@@ -45,7 +51,7 @@ export default class NewPostComponent extends Component {
         imageurl = `/images/${image.data.id}`;
         thumbnailurl = `/images/${image.data.id}?height=200&width=300`;
       } else {
-        throw new Error(response);
+        throw new Error(await response.text());
       }
     }
     let author;

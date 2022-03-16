@@ -23,7 +23,6 @@ export default class PostController extends Controller {
   @action
   async updatePost(e: Event) {
     e.preventDefault();
-    console.log(this.updatedHeadline);
     this.model.headline = this.updatedHeadline;
     this.model.articlebody = this.updatedBody;
     await this.model.save();
