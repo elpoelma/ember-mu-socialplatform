@@ -3,10 +3,10 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class MyMuLoginComponent extends MuLoginComponent {
-  @service session;
+  @service session: any;
 
   @action
-  async login(e) {
+  async login(e): Promise<void> {
     e.preventDefault();
     await super.login(e);
     if (!this.errorMessage) {

@@ -5,17 +5,17 @@ import { inject as service } from '@ember/service';
 import fetch from 'fetch';
 
 export default class NewPostComponent extends Component {
-  @tracked headline;
-  @tracked body;
-  @tracked thumbnailurl;
-  @tracked image;
-  @tracked imagePreviewURL;
-  @service store;
-  @service session;
-  @service account;
+  @tracked headline: string;
+  @tracked body: string;
+  @tracked thumbnailurl: any;
+  @tracked image: string | Blob;
+  @tracked imagePreviewURL: string | ArrayBuffer | null;
+  @service store: { createRecord: (arg0: string, arg1: { headline: any; articlebody: any; thumbnailurl: string | undefined; image: string | undefined; author: any; }) => any; };
+  @service session: { isAuthenticated: any; };
+  @service account: { userAccount: any; };
 
   @action
-  async createPost(event) {
+  async createPost(event: { preventDefault: () => void; }) {
     event.preventDefault();
     let imageurl;
     let thumbnailurl;
@@ -57,7 +57,7 @@ export default class NewPostComponent extends Component {
   }
 
   @action
-  setPostImage(event) {
+  setPostImage(event: { preventDefault: () => void; target: { files: any[]; }; }) {
     event.preventDefault();
     if (event.target.files) {
       let file = event.target.files[0];

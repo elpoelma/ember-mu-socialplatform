@@ -4,13 +4,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class MuRegistrationComponent extends Component {
-  @service session;
-  @tracked name;
-  @tracked nickname;
-  @tracked password;
-  @tracked passwordConfirm;
-  @tracked isLoading;
-  @tracked errorMessage;
+  @service session: any;
+  @tracked name: any;
+  @tracked nickname: any;
+  @tracked password: any;
+  @tracked passwordConfirm: any;
+  @tracked isLoading: boolean;
+  @tracked errorMessage: any;
 
   get forbiddenMessage() {
     return (
@@ -26,7 +26,7 @@ export default class MuRegistrationComponent extends Component {
   }
 
   @action
-  async register(e) {
+  async register(e: { preventDefault: () => void; }) {
     e.preventDefault();
 
     try {

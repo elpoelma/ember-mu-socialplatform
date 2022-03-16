@@ -1,9 +1,15 @@
+import Store from '@ember-data/store';
 import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import SessionService from './session';
 
 export default class AccountService extends Service {
-  @service session;
-  @service store;
+  @service
+  session!: SessionService;
+  @service
+  store!: Store;
+  @tracked
+  userAccount: any;
 
   async load() {
     let accountId =
@@ -13,7 +19,7 @@ export default class AccountService extends Service {
       let account = await this.store.findRecord('account', accountId, {
         include: 'owner',
       });
-      this.set('userAccount', account);
+      this.userAccount = account;
     }
   }
 }
