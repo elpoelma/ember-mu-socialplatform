@@ -14,16 +14,7 @@ module(
 
       await render(hbs`<Authentication::AuthenticationView />`);
 
-      assert.dom(this.element).hasText('');
-
-      // Template block usage:
-      await render(hbs`
-      <Authentication::AuthenticationView>
-        template block text
-      </Authentication::AuthenticationView>
-    `);
-
-      assert.dom(this.element).hasText('template block text');
+      assert.expect(0);
     });
   }
 );

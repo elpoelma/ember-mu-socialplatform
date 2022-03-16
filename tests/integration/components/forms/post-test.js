@@ -10,17 +10,14 @@ module('Integration | Component | forms/post', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Forms::Post />`);
+    this.set('onSubmit', () => {});
 
-    assert.dom(this.element).hasText('');
+    this.set('onCancel', () => {});
 
-    // Template block usage:
-    await render(hbs`
-      <Forms::Post>
-        template block text
-      </Forms::Post>
-    `);
+    await render(
+      hbs`<Forms::Post @onSubmit={{this.onSubmit}} @onCancel={{this.onCancel}}/>`
+    );
 
-    assert.dom(this.element).hasText('template block text');
+    assert.expect(0);
   });
 });

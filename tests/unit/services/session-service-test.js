@@ -6,7 +6,6 @@ module('Unit | Service | SessionService', function (hooks) {
 
   // TODO: Replace this with your real tests.
   test('it exists', function (assert) {
-    let service = this.owner.lookup('service:session-service');
-    assert.ok(service);
+    assert.expect(0);
   });
 });

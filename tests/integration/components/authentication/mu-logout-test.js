@@ -3,24 +3,15 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | mu-login', function (hooks) {
+module('Integration | Component | mu-logout', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<MuLogin />`);
+    await render(hbs`<Authentication::MuLogout />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <MuLogin>
-        template block text
-      </MuLogin>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.expect(0);
   });
 });

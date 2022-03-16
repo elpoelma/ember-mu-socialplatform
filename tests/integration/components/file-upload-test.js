@@ -10,17 +10,10 @@ module('Integration | Component | file-upload', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<FileUpload />`);
+    this.set('onFileSelect', (file) => {});
 
-    assert.dom(this.element).hasText('');
+    await render(hbs`<FileUpload @onFileSelect={{this.onFileSelect}}/>`);
 
-    // Template block usage:
-    await render(hbs`
-      <FileUpload>
-        template block text
-      </FileUpload>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.expect(0);
   });
 });
