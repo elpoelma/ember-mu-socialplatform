@@ -21,7 +21,7 @@ export default class PostController extends Controller {
   @tracked updatedBody: string = '';
 
   @action
-  async updatePost(e) {
+  async updatePost(e: Event) {
     e.preventDefault();
     console.log(this.updatedHeadline);
     this.model.headline = this.updatedHeadline;

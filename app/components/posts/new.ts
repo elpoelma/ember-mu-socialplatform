@@ -10,12 +10,23 @@ export default class NewPostComponent extends Component {
   @tracked thumbnailurl: any;
   @tracked image: string | Blob;
   @tracked imagePreviewURL: string | ArrayBuffer | null;
-  @service store: { createRecord: (arg0: string, arg1: { headline: any; articlebody: any; thumbnailurl: string | undefined; image: string | undefined; author: any; }) => any; };
-  @service session: { isAuthenticated: any; };
-  @service account: { userAccount: any; };
+  @service store: {
+    createRecord: (
+      arg0: string,
+      arg1: {
+        headline: any;
+        articlebody: any;
+        thumbnailurl: string | undefined;
+        image: string | undefined;
+        author: any;
+      }
+    ) => any;
+  };
+  @service session: { isAuthenticated: any };
+  @service account: { userAccount: any };
 
   @action
-  async createPost(event: { preventDefault: () => void; }) {
+  async createPost(event: { preventDefault: () => void }) {
     event.preventDefault();
     let imageurl;
     let thumbnailurl;
@@ -57,7 +68,7 @@ export default class NewPostComponent extends Component {
   }
 
   @action
-  setPostImage(event: { preventDefault: () => void; target: { files: any[]; }; }) {
+  setPostImage(event: Event) {
     event.preventDefault();
     if (event.target.files) {
       let file = event.target.files[0];

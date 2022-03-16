@@ -3,7 +3,6 @@ import Controller from '@ember/controller';
 import Service, { inject as service } from '@ember/service';
 import AccountService from 'frontend/services/account';
 import SessionService from 'frontend/services/session';
-import { io } from 'socket.io-client';
 
 export default class ApplicationController extends Controller {
   @service
@@ -14,9 +13,9 @@ export default class ApplicationController extends Controller {
   store!: Store;
 
   @service
-  websockets!: Service;
+  websockets!: any;
   @service
-  flashMessages!: Service;
+  flashMessages!: any;
 
   constructor() {
     super(...arguments);

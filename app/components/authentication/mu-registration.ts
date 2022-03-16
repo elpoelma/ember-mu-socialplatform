@@ -2,15 +2,23 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import SessionService from 'frontend/services/session';
 
 export default class MuRegistrationComponent extends Component {
-  @service session: any;
-  @tracked name: any;
-  @tracked nickname: any;
-  @tracked password: any;
-  @tracked passwordConfirm: any;
-  @tracked isLoading: boolean;
-  @tracked errorMessage: any;
+  @service
+  session!: SessionService;
+  @tracked
+  name!: string;
+  @tracked
+  nickname!: string;
+  @tracked
+  password!: string;
+  @tracked
+  passwordConfirm!: string;
+  @tracked
+  isLoading!: boolean;
+  @tracked
+  errorMessage!: string;
 
   get forbiddenMessage() {
     return (
@@ -26,7 +34,7 @@ export default class MuRegistrationComponent extends Component {
   }
 
   @action
-  async register(e: { preventDefault: () => void; }) {
+  async register(e: { preventDefault: () => void }) {
     e.preventDefault();
 
     try {
@@ -54,10 +62,10 @@ export default class MuRegistrationComponent extends Component {
         throw result.text;
       }
 
-      // await this.session.authenticate('authenticator:mu-semtech', {
-      //   nickname: this.nickname,
-      //   password: this.password,
-      // });
+      await this.session.authenticate('authenticator:mu-semtech', {
+        nickname: this.nickname,
+        password: this.password,
+      });
       UIkit.modal('#modal-authentication').hide();
     } catch (e) {
       if (e.errors && e.errors.length && e.errors[0].title) {

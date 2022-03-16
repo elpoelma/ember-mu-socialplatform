@@ -12,7 +12,7 @@ export default class PostsController extends Controller {
   session!: SessionService;
 
   @action
-  removePost(post: PostModel, event) {
+  removePost(post: PostModel, event: Event) {
     event.preventDefault();
     post.destroyRecord();
   }

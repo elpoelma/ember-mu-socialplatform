@@ -6,7 +6,7 @@ export default class MyMuLoginComponent extends MuLoginComponent {
   @service session: any;
 
   @action
-  async login(e): Promise<void> {
+  async login(e: Event): Promise<void> {
     e.preventDefault();
     await super.login(e);
     if (!this.errorMessage) {
