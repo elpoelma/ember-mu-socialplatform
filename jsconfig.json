@@ -7,9 +7,5 @@
     },
     "exclude": [
       "node_modules",
-    ],
-    "typeAcquisition": {
-      "enable": true,
-      "include": ["ember", "ember-data", "qunit", "ember-qunit", "glimmer"]
-    }
+    ]
   }

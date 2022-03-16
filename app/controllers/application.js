@@ -1,7 +1,6 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { io } from 'socket.io-client';
-import uikit from 'uikit';
 
 export default class ApplicationController extends Controller {
   @service session;
@@ -27,8 +26,8 @@ export default class ApplicationController extends Controller {
       type: 'foo',
       componentName: 'notification',
       content: {
-        post: post
-      }
+        post: post,
+      },
     });
   }
 }

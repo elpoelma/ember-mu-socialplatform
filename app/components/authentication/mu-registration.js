@@ -12,13 +12,17 @@ export default class MuRegistrationComponent extends Component {
   @tracked isLoading;
   @tracked errorMessage;
 
-
   get forbiddenMessage() {
-    return this.args.forbiddenMessage || "You don't have access to this application";
+    return (
+      this.args.forbiddenMessage || "You don't have access to this application"
+    );
   }
 
   get failureMessage() {
-    return this.args.failureMessage || 'Something went wrong. Please try again later.';
+    return (
+      this.args.failureMessage ||
+      'Something went wrong. Please try again later.'
+    );
   }
 
   @action
@@ -46,7 +50,7 @@ export default class MuRegistrationComponent extends Component {
         }),
       });
 
-      if(!result.ok){
+      if (!result.ok) {
         throw result.text;
       }
 
@@ -55,14 +59,12 @@ export default class MuRegistrationComponent extends Component {
       //   password: this.password,
       // });
       UIkit.modal('#modal-authentication').hide();
-    } catch(e){
+    } catch (e) {
       if (e.errors && e.errors.length && e.errors[0].title) {
         this.errorMessage = e.errors[0].title;
       } else {
-        if (e.status == 403)
-          this.errorMessage = this.forbiddenMessage;
-        else
-          this.errorMessage = this.failureMessage;
+        if (e.status == 403) this.errorMessage = this.forbiddenMessage;
+        else this.errorMessage = this.failureMessage;
       }
     } finally {
       this.isLoading = false;

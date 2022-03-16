@@ -1,0 +1,27 @@
+<form {{on "submit" @onSubmit}}>
+    <div class="uk-margin">
+        <Input type="text" class="uk-input" @value={{@headline}} placeholder="Post title" />
+    </div>
+
+    <div class="uk-margin">
+        <Textarea class="uk-textarea" rows="5" placeholder="Post body" @value={{@body}} />
+    </div>
+    {{#if @onImageSelect}}
+     <div uk-form-custom class="uk-margin">
+        <FileUpload @onFileSelect={{@onImageSelect}}/>
+        <button class="uk-button uk-button-default" type="button">Select Image</button>
+    </div>
+    {{/if}}
+
+    {{#if @imagePreviewURL}}
+    <div class="uk-margin">
+        <img src={{@imagePreviewURL}}/>
+    </div>
+    {{/if}}
+    <p class="uk-text-right">
+        {{#if @onCancel}}
+        <button class="uk-button uk-button-default" type="button" {{on "click" @onCancel}}>Cancel</button>
+        {{/if}}
+        <button class="uk-button uk-button-primary" type="submit">Save</button>
+    </p>
+</form>

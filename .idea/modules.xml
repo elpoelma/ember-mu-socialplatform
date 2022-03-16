@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/ember-mu-socialplatform.iml" filepath="$PROJECT_DIR$/.idea/ember-mu-socialplatform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mu-socialplatform-app/.idea/mu-socialplatform-app.iml" filepath="$PROJECT_DIR$/../mu-socialplatform-app/.idea/mu-socialplatform-app.iml" />
+    </modules>
+  </component>
+</project>
