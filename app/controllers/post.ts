@@ -2,25 +2,32 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import Store from '@ember-data/store';
+import AccountService from 'frontend/services/account';
+import SessionService from 'frontend/services/session';
 
 export default class PostController extends Controller {
-  @service store;
-  @service account;
-  @service session;
+  @service
+  store!: Store;
+  @service
+  account!: AccountService;
+  @service
+  session!: SessionService;
 
-  @tracked editing;
+  @tracked
+  editing: boolean = false;
 
-  @tracked updatedHeadline;
-  @tracked updatedBody;
+  @tracked updatedHeadline: string = '';
+  @tracked updatedBody: string = '';
 
   @action
   async updatePost(e) {
     e.preventDefault();
-    console.log(this.updatedHeadline)
+    console.log(this.updatedHeadline);
     this.model.headline = this.updatedHeadline;
     this.model.articlebody = this.updatedBody;
     await this.model.save();
-    this.toggleEdit()
+    this.toggleEdit();
   }
 
   @action

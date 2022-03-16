@@ -1,14 +1,22 @@
+import Store from '@ember-data/store';
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import Service, { inject as service } from '@ember/service';
+import AccountService from 'frontend/services/account';
+import SessionService from 'frontend/services/session';
 import { io } from 'socket.io-client';
 
 export default class ApplicationController extends Controller {
-  @service session;
-  @service account;
-  @service store;
+  @service
+  session!: SessionService;
+  @service
+  account!: AccountService;
+  @service
+  store!: Store;
 
-  @service('websockets') websockets;
-  @service flashMessages;
+  @service
+  websockets!: Service;
+  @service
+  flashMessages!: Service;
 
   constructor() {
     super(...arguments);
@@ -17,7 +25,7 @@ export default class ApplicationController extends Controller {
     socket.on('message', this.newPostHandler, this);
   }
 
-  async newPostHandler(event) {
+  async newPostHandler(event: any) {
     let response = JSON.parse(event.data);
 
     let post = await this.store.findRecord('post', response.uuid);
