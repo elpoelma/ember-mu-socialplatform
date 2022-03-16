@@ -31,11 +31,9 @@ export default class NewPostComponent extends Component {
       });
       if (response.ok) {
         let image = await response.json();
-        console.log(image);
         imageurl = `/images/${image.data.id}`;
         thumbnailurl = `/images/${image.data.id}?height=200&width=300`;
       } else {
-        console.log(response);
         throw new Error(response);
       }
     }
