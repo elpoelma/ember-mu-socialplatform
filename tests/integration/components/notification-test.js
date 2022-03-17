@@ -7,11 +7,22 @@ module('Integration | Component | notification', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.setProperties({
+      content: {
+        post: {
+          headline: 'Headline',
+          id: 'test-id',
+          author: {
+            formattedNickname: 'nickname',
+          },
+        },
+      },
+    });
 
-    await render(hbs`<Notification />`);
+    await render(hbs`<Notification @content={{this.content}}>`);
 
-    assert.expect(0);
+    assert.dom('div.uk-card .uk-card-title').hasText('Headline');
+    assert.dom('div.uk-card p').containsText('nickname');
+    assert.dom('div.uk-card .uk-card-footer a').hasText('Read More');
   });
 });

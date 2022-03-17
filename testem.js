@@ -20,4 +20,18 @@ module.exports = {
       ].filter(Boolean),
     },
   },
+  proxies: {
+    '/people': {
+      target: 'http://localhost:80',
+    },
+    '/posts': {
+      target: 'http://localhost:80',
+    },
+    '/accounts': {
+      target: 'http://localhost:80',
+    },
+    '/sessions': {
+      target: 'http://localhost:80',
+    },
+  },
 };
