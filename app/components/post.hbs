@@ -22,16 +22,16 @@
             @model={{@post}}
             class='uk-button uk-button-text'
           >Read more</LinkTo>
-          {{#if this.session.isAuthenticated}}
 
-            {{#if (eq @post.author.nickname this.account.userAccount.nickname)}}
+          <Authentication::AccountProvider as |isAuthenticated account|>
+            {{#if (eq @post.author.nickname account.nickname)}}
               <button
                 class='uk-button uk-button-text'
                 type='button'
                 {{on 'click' (fn this.removePost @post)}}
               >Delete Post</button>
             {{/if}}
-          {{/if}}
+          </Authentication::AccountProvider>
         </div>
 
       </div>

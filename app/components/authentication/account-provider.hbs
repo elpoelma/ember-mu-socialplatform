@@ -1,0 +1,5 @@
+{{#if this.session.isAuthenticated}}
+  {{#if this.account.userAccount}}
+    {{yield this.session.isAuthenticated this.account.userAccount}}
+  {{/if}}
+{{/if}}

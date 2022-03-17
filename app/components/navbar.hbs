@@ -10,29 +10,34 @@
 
   <div class='uk-navbar-right'>
     <ul class='uk-navbar-nav'>
-      <li><a href='#modal-example' uk-toggle>Create New Post</a></li>
-      <Modal @modal-id='modal-example' @modal-title='Create new post'>
-        <Posts::New />
-      </Modal>
 
-      {{#if @isAuthenticated}}
-        <li>
-          <LinkTo @route='my-profile'>{{@nickname}}</LinkTo>
-        </li>
-        <li>
-          <div class='uk-navbar-item'>
-            <Authentication::MuLogout />
-          </div>
-        </li>
-
-      {{else}}
-        <li>
-          <a href='#modal-authentication' uk-toggle>Log In/Sign Up</a>
-          <Modal @modal-id='modal-authentication' @modal-title='Authentication'>
-            <Authentication::AuthenticationView />
+      <Authentication::AccountProvider as |isAuthenticated account|>
+        {{#if isAuthenticated}}
+          <li><a href='#modal-example' uk-toggle>Create New Post</a></li>
+          <Modal @modal-id='modal-example' @modal-title='Create new post'>
+            <Posts::New />
           </Modal>
-        </li>
-      {{/if}}
+          <li>
+            <LinkTo @route='my-profile'>{{account.formattedNickname}}</LinkTo>
+          </li>
+          <li>
+            <div class='uk-navbar-item'>
+              <Authentication::MuLogout />
+            </div>
+          </li>
+
+        {{else}}
+          <li>
+            <a href='#modal-authentication' uk-toggle>Log In/Sign Up</a>
+            <Modal
+              @modal-id='modal-authentication'
+              @modal-title='Authentication'
+            >
+              <Authentication::AuthenticationView />
+            </Modal>
+          </li>
+        {{/if}}
+      </Authentication::AccountProvider>
 
     </ul>
 
