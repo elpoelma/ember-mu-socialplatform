@@ -1,43 +1,40 @@
-<nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
+<nav class='uk-navbar-container' uk-navbar>
+  <div class='uk-navbar-left'>
 
-        <ul class="uk-navbar-nav">
-            <li><LinkTo @route="posts">Feed</LinkTo></li>
-            <li><LinkTo @route="users">Users</LinkTo></li>
-        </ul>
+    <ul class='uk-navbar-nav'>
+      <li><LinkTo @route='posts'>Feed</LinkTo></li>
+      <li><LinkTo @route='users'>Users</LinkTo></li>
+    </ul>
 
-    </div>
+  </div>
 
-    <div class="uk-navbar-right">
-         <ul class="uk-navbar-nav">
-        <li><a href="#modal-example" uk-toggle>Create New Post</a></li>
-        <Modal @modal-id="modal-example" @modal-title="Create new post">
-            <Posts::New/>
-        </Modal>
-        
-        
+  <div class='uk-navbar-right'>
+    <ul class='uk-navbar-nav'>
+      <li><a href='#modal-example' uk-toggle>Create New Post</a></li>
+      <Modal @modal-id='modal-example' @modal-title='Create new post'>
+        <Posts::New />
+      </Modal>
 
-            {{#if @isAuthenticated}}
-            <li>
-                <LinkTo @route="my-profile">{{@nickname}}</LinkTo>
-            </li>
-            <li>
-            <div class="uk-navbar-item">
-                <Authentication::MuLogout/>
-            </div>
-            </li>
-               
-            {{else}}
-            <li>
-                <a href="#modal-authentication" uk-toggle>Log In/Sign Up</a>
-                <Modal @modal-id="modal-authentication" @modal-title="Authentication">
-                    <Authentication::AuthenticationView/>
-                </Modal>
-               </li> 
-            {{/if}}
-        
+      {{#if @isAuthenticated}}
+        <li>
+          <LinkTo @route='my-profile'>{{@nickname}}</LinkTo>
+        </li>
+        <li>
+          <div class='uk-navbar-item'>
+            <Authentication::MuLogout />
+          </div>
+        </li>
 
-         </ul>
-         
-    </div>
+      {{else}}
+        <li>
+          <a href='#modal-authentication' uk-toggle>Log In/Sign Up</a>
+          <Modal @modal-id='modal-authentication' @modal-title='Authentication'>
+            <Authentication::AuthenticationView />
+          </Modal>
+        </li>
+      {{/if}}
+
+    </ul>
+
+  </div>
 </nav>

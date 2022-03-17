@@ -2,34 +2,26 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import SessionService from 'frontend/services/session';
+import AccountService from 'frontend/services/account';
+import Store from '@ember-data/store';
 
 export default class NewPostComponent extends Component {
   @tracked
   headline!: string;
   @tracked
   body!: string;
-  @tracked thumbnailurl: any;
+  @tracked thumbnailurl!: string;
   @tracked
-  image!: string | Blob;
+  image!: string;
   @tracked
-  imagePreviewURL!: string | ArrayBuffer | null;
+  imagePreviewURL!: string;
   @service
-  store!: {
-    createRecord: (
-      arg0: string,
-      arg1: {
-        headline: any;
-        articlebody: any;
-        thumbnailurl: string | undefined;
-        image: string | undefined;
-        author: any;
-      }
-    ) => any;
-  };
+  store!: Store;
   @service
-  session!: { isAuthenticated: any };
+  session!: SessionService;
   @service
-  account!: { userAccount: any };
+  account!: AccountService;
 
   @action
   async createPost(event: { preventDefault: () => void }) {

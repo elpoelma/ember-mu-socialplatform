@@ -15,13 +15,13 @@
     </div>
   {{/if}}
   <p class='uk-text-right'>
-    {{#if @onCancel}}
-      <button
-        class='uk-button uk-button-default uk-button-primary'
-        type='button'
-        {{on 'click' @onCancel}}
-      >Cancel</button>
-    {{/if}}
+    <button
+      class='uk-button uk-button-default uk-button-primary'
+      type='button'
+      {{on 'click' this.cancel}}
+    >
+      Cancel
+    </button>
     <button class='uk-button uk-button-default' type='submit'>Save</button>
   </p>
 </form>

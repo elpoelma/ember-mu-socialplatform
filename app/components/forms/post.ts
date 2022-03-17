@@ -1,3 +1,15 @@
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
-export default class FormsPostComponent extends Component {}
+interface Args {
+  onCancel: any;
+}
+
+export default class FormsPostComponent extends Component<Args> {
+  @action
+  cancel() {
+    if (this.args.onCancel) {
+      this.args.onCancel();
+    }
+  }
+}
