@@ -5,22 +5,9 @@
     @labelText='Title'
   />
 
-  <div class='uk-margin'>
-    <label for='post-body'></label>
-    <Textarea
-      id='post-body'
-      class='uk-textarea'
-      rows='5'
-      placeholder='Post body'
-      @value={{@body}}
-    />
-  </div>
-  {{#if @onImageSelect}}
-    <div uk-form-custom class='uk-margin'>
-      <FileUpload @onFileSelect={{@onImageSelect}} />
-      <button class='uk-button uk-button-default' type='button'>Select Image</button>
-    </div>
-  {{/if}}
+  <Forms::TextareaInput @placeholder='Post body' @inputValue={{@body}} />
+
+  <FileUpload @onFileSelect={{@onImageSelect}} />
 
   {{#if @imagePreviewURL}}
     <div class='uk-margin'>
@@ -30,11 +17,11 @@
   <p class='uk-text-right'>
     {{#if @onCancel}}
       <button
-        class='uk-button uk-button-default'
+        class='uk-button uk-button-default uk-button-primary'
         type='button'
         {{on 'click' @onCancel}}
       >Cancel</button>
     {{/if}}
-    <button class='uk-button uk-button-primary' type='submit'>Save</button>
+    <button class='uk-button uk-button-default' type='submit'>Save</button>
   </p>
 </form>

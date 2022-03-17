@@ -1,8 +1,14 @@
-<input
-  type='file'
-  multiple='false'
-  {{on 'change' @onFileSelect}}
-  id='avatar'
-  name='avatar'
-  accept='image/png, image/jpeg'
-/>
+{{#if @onFileSelect}}
+  <div uk-form-custom class='uk-margin'>
+
+    <input
+      type='file'
+      multiple='false'
+      {{on 'change' @onFileSelect}}
+      id='avatar'
+      name='avatar'
+      accept='image/png, image/jpeg'
+    />
+    <button class='uk-button uk-button-default' type='button'>Select Image</button>
+  </div>
+{{/if}}
