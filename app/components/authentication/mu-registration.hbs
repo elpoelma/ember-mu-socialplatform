@@ -1,36 +1,48 @@
-<form {{on "submit" this.register}}>
-    <div class="uk-margin">
-        <label for="mu-signup-name">Name</label>
-        <Input id="mu-signup-name" class="uk-input" @value={{this.name}} placeholder={{@placeholder}} />
-    </div>
-    <div class="uk-margin">
-        <label for="mu-signup-username">Username</label>
-        <Input id="mu-signup-username" class="uk-input" @value={{this.nickname}} placeholder={{@placeholder}} />
-    </div>
-    <div class="uk-margin">
-        <label for="mu-signup-password">Password</label>
-        <Input id="mu-signup-password" class="uk-input" @value={{this.password}} type="password" />
-    </div>
-    <div class="uk-margin">
-        <label for="mu-signup-passwordConfirm">Password Confirmation</label>
-        <Input id="mu-signup-passwordConfirm" class="uk-input" @value={{this.passwordConfirm}} type="password" />
-    </div>
+<form {{on 'submit' this.register}}>
+  <Forms::FormInput
+    @labelText='Name'
+    @inputValue={{this.name}}
+    @placeholder='Name'
+  />
 
-    <div class="feedback-message">
+  <Forms::FormInput
+    @labelText='Username'
+    @inputValue={{this.nickname}}
+    @placeholder='Username'
+  />
+
+  <Forms::FormInput
+    @labelText='Password'
+    @inputValue={{this.password}}
+    @placeholder='Password'
+    @type='password'
+  />
+
+  <Forms::FormInput
+    @labelText='Password Confirmation'
+    @inputValue={{this.passwordConfirm}}
+    @placeholder='Password confirmation'
+    @type='password'
+  />
+  <div class='feedback-message'>
     {{#if this.isLoading}}
-    <div class="mu-login-authenticating">
-      Loading
-    </div>
+      <div class='mu-login-authenticating'>
+        Loading
+      </div>
     {{/if}}
     {{#if this.errorMessage}}
-    <div class="mu-login-error-message">
-      error
-      {{this.errorMessage}}
-    </div>
+      <div class='mu-login-error-message'>
+        error
+        {{this.errorMessage}}
+      </div>
     {{/if}}
   </div>
-    
-    <button class="uk-button uk-button-primary" type="submit" disabled={{this.isLoading}}>
-        Register
-    </button>
+
+  <button
+    class='uk-button uk-button-primary'
+    type='submit'
+    disabled={{this.isLoading}}
+  >
+    Register
+  </button>
 </form>

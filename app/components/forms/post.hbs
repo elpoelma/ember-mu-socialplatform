@@ -1,14 +1,9 @@
 <form {{on 'submit' @onSubmit}}>
-  <div class='uk-margin'>
-    <label for='post-title'></label>
-    <Input
-      id='post-title'
-      type='text'
-      class='uk-input'
-      @value={{@headline}}
-      placeholder='Post title'
-    />
-  </div>
+  <Forms::FormInput
+    @inputValue={{@headline}}
+    @placeholder='Post title'
+    @labelText='Title'
+  />
 
   <div class='uk-margin'>
     <label for='post-body'></label>
