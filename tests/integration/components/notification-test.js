@@ -19,7 +19,7 @@ module('Integration | Component | notification', function (hooks) {
       },
     });
 
-    await render(hbs`<Notification @content={{this.content}}>`);
+    await render(hbs`<Notification @content={{this.content}}/>`);
 
     assert.dom('div.uk-card .uk-card-title').hasText('Headline');
     assert.dom('div.uk-card p').containsText('nickname');
