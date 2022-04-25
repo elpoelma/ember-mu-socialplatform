@@ -1,18 +1,27 @@
-{{page-title "Post"}}
+{{page-title 'Post'}}
 
-{{#if this.session.isAuthenticated}}
+<Authentication::AccountProvider as |isAuthenticated account|>
+  {{#if (eq @model.author.nickname account.nickname)}}
+    {{#unless this.editing}}
+      <button type='button' {{on 'click' this.toggleEdit}}>Edit post</button>
+    {{/unless}}
+  {{/if}}
+</Authentication::AccountProvider>
 
-{{#if (eq @model.author.nickname this.account.userAccount.nickname) }}
-{{#unless this.editing}}
-<button type="button" {{on "click" this.toggleEdit}}>Edit post</button>
-{{/unless}}
-{{/if}}
-{{/if}}
 {{#if this.editing}}
-<Forms::Post @onSubmit={{this.updatePost}} @headline={{this.updatedHeadline}} @body={{this.updatedBody}} @onCancel={{this.toggleEdit}}/>
+  <Forms::Post
+    @onSubmit={{this.updatePost}}
+    @headline={{this.updatedHeadline}}
+    @body={{this.updatedBody}}
+    @onCancel={{this.toggleEdit}}
+  />
 
 {{else}}
-<h1>{{@model.headline}}</h1>
-<img src={{@model.image}}>
-<MarkdownToHtml @markdown={{@model.articlebody}} @simplifiedAutoLink={{true}} @tables={{true}} />
+  <h1>{{@model.headline}}</h1>
+  <img src={{@model.image}} />
+  <MarkdownToHtml
+    @markdown={{@model.articlebody}}
+    @simplifiedAutoLink={{true}}
+    @tables={{true}}
+  />
 {{/if}}

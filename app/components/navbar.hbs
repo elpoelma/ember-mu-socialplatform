@@ -10,8 +10,8 @@
 
   <div class='uk-navbar-right'>
     <ul class='uk-navbar-nav'>
-
       <Authentication::AccountProvider as |isAuthenticated account|>
+
         {{#if isAuthenticated}}
           <li><a href='#modal-example' uk-toggle>Create New Post</a></li>
           <Modal @modal-id='modal-example' @modal-title='Create new post'>
